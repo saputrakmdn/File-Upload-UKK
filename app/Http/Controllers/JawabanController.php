@@ -15,6 +15,7 @@ class JawabanController extends Controller
         ];
         return view('jawaban.index', $data);
     }
+
     public function upload(Request $request){
         $extention = $request->file->getClientOriginalExtension();
         $pathJawaban = "file/klaster-".$request->klaster."/".$request->nis."-".$request->nama."-jawaban-klaster-".$request->klaster.".".$extention;

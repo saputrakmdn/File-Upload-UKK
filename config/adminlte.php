@@ -313,6 +313,12 @@ return [
             'url'         => 'admin/jawaban',
             'icon'        => 'far fa-fw fa-file',
             'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Soal',
+            'url'         => 'admin/soal',
+            'icon'        => 'far fa-fw fa-file',
+            'label_color' => 'success',
         ]
     ],
 

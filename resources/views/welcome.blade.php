@@ -41,6 +41,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#download-soal">Download Soal</a></li>
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#upload-file">Upload Jawaban</a></li>
             </ul>
         </div>
@@ -63,6 +64,33 @@
         <p class="masthead-subheading font-weight-light mb-0">SMKN 5 Kab. Tangerang</p>
     </div>
 </header>
+
+<section class="page-section portfolio" id="download-soal">
+    <div class="container">
+        <!-- Portfolio Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">DOWNLOAD SOAL</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Portfolio Grid Items-->
+        <div class="row justify-content-center">
+            <!-- Portfolio Item 1-->
+            @foreach($soals as $soal)
+            <div class="col-md-6 col-lg-4 mb-5">
+                <div class="portfolio-item mx-auto" onclick="location.href = '{{asset('uploads/'.$soal->file)}}'">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-download fa-3x"></i></div>
+                    </div>
+                    <img class="img-fluid" src="{{asset('template/assets/img/bg.png')}}" alt="..." />
+                    <h1 class="centered">{{$soal->nama_soal}}</h1>
+                </div>
+            </div>
+            @endforeach
+    </div>
+</section>
 <!-- Portfolio Section-->
 <section class="page-section portfolio" id="upload-file">
     <div class="container">
@@ -292,6 +320,24 @@
         </div>
     </div>
 </div>
+<style>
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-style: italic;
+        font-size: -webkit-xxx-large;
+        opacity: 1;
+        pointer-events: none;
+        width: 100%;
+        text-align: center;
+    }
+    .portfolio .portfolio-item .portfolio-item-caption:hover ~ .centered{
+        opacity: 0.5;
+    }
+</style>
 <!-- Bootstrap core JS-->
 <script src="{{asset('vendor/jquery/jquery.js')}}"></script>
 <script src="{{asset('template/js/bootstrap.bundle.min.js')}}"></script>
